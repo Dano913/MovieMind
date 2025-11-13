@@ -1,0 +1,32 @@
+body{
+    background: url("/images/portada.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    z-index: -3;
+}
+.michroma-regular {
+    font-family: "Michroma", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 70px;
+}
+.btn-facebook{
+    background-color: #1b8f0cff;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+.btn-facebook:hover{
+    background-color: #0f690bff;
+}
+.sform{
+    margin-top: 50px;
+}
+.regular.slider img{
+    width: 200px;
+    height: 150px;
+}
