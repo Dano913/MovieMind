@@ -34,7 +34,7 @@
                 @foreach($peliculas as $pelicula)
                     <tr>
                         <td>{{$pelicula->id}}</td>
-                        <td>{{$pelicula->titulo_id}}</td>
+                        <td>{{$pelicula->titulo_p}}</td>
                         <td>{{$pelicula->descripcion_p}}</td>
                         <td>{{$pelicula->categoria_p}}</td>
                         <td><img src="{{$pelicula->image_p}}" width="100px"></td>

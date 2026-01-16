@@ -84,21 +84,15 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../index.html" class="nav-link">
+                    <a href="{{url('admin/peliculas')}}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Listado de Películas</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="../index2.html" class="nav-link">
+                    <a href="{{url('admin/peliculas/create')}}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../index3.html" class="nav-link">
-                      <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v3</p>
+                      <p>Nueva película</p>
                     </a>
                   </li>
                 </ul>
@@ -155,5 +149,6 @@
         }
       });
     </script>
+    @yield('scripts')
   </body>
 </html>
