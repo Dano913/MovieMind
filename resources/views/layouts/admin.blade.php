@@ -38,6 +38,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body class="layout-fixed sidebar-expand-lg sidebar-open bg-body-tertiary">
     <div class="app-wrapper">

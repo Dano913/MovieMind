@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <h3 class="mb-0">Nueva película</h3>
+                <h3 class="mb-0">Editar película</h3>
             </div>
         </div>
     </div>
@@ -16,11 +16,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-primary card-outline">
+                <div class="card card-success card-outline">
                     <div class="card-body">
 
-                        <form action="{{ url('/admin/peliculas') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ url('/admin/peliculas', $pelicula->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            {{method_field('PATCH')}}
                             <div class="row">
                                 <div class="col-md-8">
 
@@ -28,7 +29,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Título de la película <span style="color: red"><b>*</b></span></label>
-                                                <input type="text" name="titulo_p" class="form-control" value="{{old('titulo_p')}}" required>
+                                                <input type="text" name="titulo_p" class="form-control" value="{{$pelicula->titulo_p}}" required>
                                                 @error('titulo_p')
                                                 <small style="color: red;">{{$message}}</small>
                                                 @enderror
@@ -38,35 +39,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Categoría <span style="color: red"><b>*</b></span></label>
-                                                <input type="text" name="categoria_p" class="form-control" value="{{old('categoria_p')}}" required>
-                                                <div class="form-group">
-                                                    <label for="">Categoría</label>
-                                                    <!--
-                                                        <select name="categoria_p" id="" class="form-control">
-                                                            <option value="ACCIÓN" {{ old('categoria_p')=='ACCIÓN' ? 'selected' : '' }}>ACCIÓN</option>
-                                                            <option value="ANIMACIÓN KIDS" {{ old('categoria_p')=='ANIMACIÓN KIDS' ? 'selected' : '' }}>ANIMACIÓN KIDS</option>
-                                                            <option value="ANIMES" {{ old('categoria_p')=='ANIMES' ? 'selected' : '' }}>ANIMES</option>
-                                                            <option value="AVENTURAS" {{ old('categoria_p')=='AVENTURAS' ? 'selected' : '' }}>AVENTURAS</option>
-                                                            <option value="CIENCIA FICCIÓN" {{ old('categoria_p')=='CIENCIA FICCIÓN' ? 'selected' : '' }}>CIENCIA FICCIÓN</option>
-                                                            <option value="COMEDIA" {{ old('categoria_p')=='COMEDIA' ? 'selected' : '' }}>COMEDIA</option>
-                                                            <option value="CRIMEN" {{ old('categoria_p')=='CRIMEN' ? 'selected' : '' }}>CRIMEN</option>
-                                                            <option value="CRISTIANOS" {{ old('categoria_p')=='CRISTIANOS' ? 'selected' : '' }}>CRISTIANOS</option>
-                                                            <option value="DOCUMENTALES" {{ old('categoria_p')=='DOCUMENTALES' ? 'selected' : '' }}>DOCUMENTALES</option>
-                                                            <option value="DORAMAS" {{ old('categoria_p')=='DORAMAS' ? 'selected' : '' }}>DORAMAS</option>
-                                                            <option value="DRAMA" {{ old('categoria_p')=='DRAMA' ? 'selected' : '' }}>DRAMA</option>
-                                                            <option value="EDUCATIVOS" {{ old('categoria_p')=='EDUCATIVOS' ? 'selected' : '' }}>EDUCATIVOS</option>
-                                                            <option value="FAMILIAR" {{ old('categoria_p')=='FAMILIAR' ? 'selected' : '' }}>FAMILIAR</option>
-                                                            <option value="FANTASIA" {{ old('categoria_p')=='FANTASIA' ? 'selected' : '' }}>FANTASIA</option>
-                                                            <option value="HISTORIA" {{ old('categoria_p')=='HISTORIA' ? 'selected' : '' }}>HISTORIA</option>
-                                                            <option value="MISTERIO" {{ old('categoria_p')=='MISTERIO' ? 'selected' : '' }}>MISTERIO</option>
-                                                            <option value="NOVELAS" {{ old('categoria_p')=='NOVELAS' ? 'selected' : '' }}>NOVELAS</option>
-                                                            <option value="ROMANTICAS" {{ old('categoria_p')=='ROMANTICAS' ? 'selected' : '' }}>ROMANTICAS</option>
-                                                            <option value="SUSPENSO" {{ old('categoria_p')=='SUSPENSO' ? 'selected' : '' }}>SUSPENSO</option>
-                                                            <option value="TERROR" {{ old('categoria_p')=='TERROR' ? 'selected' : '' }}>TERROR</option>
-                                                            <option value="OTROS" {{ old('categoria_p')=='OTROS' ? 'selected' : '' }}>OTROS</option>
-                                                        </select>
-                                                    -->
-                                                </div>
+                                                <input type="text" name="categoria_p" class="form-control" value="{{$pelicula->categoria_p}}" required>
                                                 @error('categoria_p')
                                                 <small style="color: red;">{{$message}}</small>
                                                 @enderror
@@ -78,14 +51,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Trailer</label>
-                                                <input type="text" name="trailer_p" class="form-control">
+                                                <input type="text" name="trailer_p" class="form-control" value="{{$pelicula->trailer_p}}">
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Duración <span style="color: red"><b>*</b></span></label>
-                                                <input type="text" name="duracion_p" class="form-control" value="{{old('duracion_p')}}" required>
+                                                <input type="text" name="duracion_p" class="form-control" value="{{$pelicula->duracion_p}}" required>
                                                 @error('duracion_p')
                                                 <small style="color: red;">{{$message}}</small>
                                                 @enderror
@@ -114,7 +87,7 @@
                                             id="descripcion_p"
                                             name="descripcion_p"
                                             class="form-control"
-                                            style="min-height:150px;" required>{{old('descripcion_p')}}</textarea>
+                                            style="min-height:150px;" required>{{$pelicula->descripcion_p}}</textarea>
                                         @error('descripcion_p')
                                           <small style="color: red;">{{$message}}</small>
                                         @enderror
@@ -126,7 +99,9 @@
                                         @error('imagen_p')
                                           <small style="color: red;">{{$message}}</small>
                                         @enderror
-                                        <output id="list" style="margin-top: 10px"></output>
+                                        <output id="list" style="margin-top: 10px">
+                                            <img src="{{asset('storage').'/'.$pelicula->imagen_p}}" width="100px" alt="">
+                                        </output>
                                         <script>
                                           function archivo(evt) {
                                               var files = evt.target.files; // FileList object
@@ -161,8 +136,8 @@
                                     <a href="{{ url('/admin/peliculas') }}" class="btn btn-secondary">
                                         Cancelar
                                     </a>
-                                    <button type="submit" class="btn btn-primary">
-                                        Registrar
+                                    <button type="submit" class="btn btn-success">
+                                        Actualizar
                                     </button>
                                 </div>
                             </div>
