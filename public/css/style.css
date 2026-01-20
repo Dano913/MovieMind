@@ -1,32 +1,463 @@
-body{
-    background: url("/images/portada.jpg");
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh;
-    background-attachment: fixed;
-    z-index: -3;
+/* ===============================================
+   Movie Mind - Estilos Personalizados
+   =============================================== */
+
+/* === Variables de colores === */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --dark-color: #343a40;
+  --light-color: #f8f9fa;
+  --sidebar-dark: #1a1a1a;
+  --sidebar-hover: #2d2d2d;
+  --transition-speed: 0.3s;
 }
-.michroma-regular {
-    font-family: "Michroma", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-    font-size: 70px;
+
+/* === Estilos generales === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.btn-facebook{
-    background-color: #1b8f0cff;
+
+body {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* === Encabezado === */
+.app-header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar-nav .nav-link {
+  transition: background-color var(--transition-speed) ease;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* === Sidebar === */
+.app-sidebar {
+  transition: all var(--transition-speed) ease;
+}
+
+.sidebar-brand {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  transition: opacity var(--transition-speed) ease;
+}
+
+.brand-link:hover {
+  opacity: 0.8;
+}
+
+.brand-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.brand-text {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* === Navegación del sidebar === */
+.sidebar-menu {
+  padding: 1rem 0.5rem;
+}
+
+.nav-item {
+  margin-bottom: 0.25rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+  background-color: var(--sidebar-hover);
+  color: #fff;
+}
+
+.nav-link.active {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.nav-icon {
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.nav-arrow {
+  margin-left: auto;
+  font-size: 0.875rem;
+  transition: transform var(--transition-speed) ease;
+}
+
+.nav-item.menu-open > .nav-link .nav-arrow {
+  transform: rotate(90deg);
+}
+
+.nav-treeview {
+  padding-left: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-speed) ease;
+}
+
+.nav-item.menu-open > .nav-treeview {
+  max-height: 500px;
+}
+
+.nav-treeview .nav-link {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* === Contenido principal === */
+.app-main {
+  padding: 1.5rem;
+  min-height: calc(100vh - 120px);
+}
+
+.content-wrapper {
+  background-color: transparent;
+}
+
+.content-header {
+  margin-bottom: 1.5rem;
+}
+
+.content-header h1 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--dark-color);
+}
+
+/* === Tarjetas === */
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  background-color: var(--light-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-footer {
+  background-color: var(--light-color);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 0.75rem 1.25rem;
+}
+
+/* === Tablas === */
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  background-color: var(--light-color);
+  font-weight: 600;
+  border-bottom: 2px solid var(--secondary-color);
+  padding: 0.75rem;
+}
+
+.table tbody tr {
+  transition: background-color var(--transition-speed) ease;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.table td {
+  vertical-align: middle;
+  padding: 0.75rem;
+}
+
+/* === Botones === */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all var(--transition-speed) ease;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: #fff;
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+  color: #212529;
+}
+
+.btn-info {
+  background-color: var(--info-color);
+  color: #fff;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* === Formularios === */
+.form-control {
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  padding: 0.5rem 0.75rem;
+  transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* === Badges === */
+.badge {
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* === Alertas === */
+.alert {
+  border-radius: 6px;
+  border: none;
+  padding: 1rem 1.25rem;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+/* === Footer === */
+.app-footer {
+  background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 1rem;
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 0.875rem;
+}
+
+/* === Imágenes de películas === */
+.movie-poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-speed) ease;
+}
+
+.movie-poster:hover {
+  transform: scale(1.05);
+}
+
+.movie-thumbnail {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* === Utilidades === */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* === Spinner de carga === */
+.spinner-border {
+  width: 2rem;
+  height: 2rem;
+  border-width: 0.25rem;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15rem;
+}
+
+/* === Modo oscuro === */
+@media (prefers-color-scheme: dark) {
+  .app-main {
+    background-color: #1a1a1a;
+  }
+
+  .card {
+    background-color: #2d2d2d;
     color: #fff;
-    font-size: 30px;
-    border-radius: 10px;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
+  }
+
+  .card-header,
+  .card-footer {
+    background-color: #222;
+    border-color: #444;
+  }
+
+  .table {
+    color: #fff;
+  }
+
+  .table thead th {
+    background-color: #222;
+    border-color: #444;
+  }
+
+  .table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .form-control {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #fff;
+  }
+
+  .app-footer {
+    background-color: #1a1a1a;
+    border-color: #444;
+  }
 }
-.btn-facebook:hover{
-    background-color: #0f690bff;
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .app-main {
+    padding: 1rem;
+  }
+
+  .content-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .table {
+    font-size: 0.875rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .movie-poster {
+    height: 200px;
+  }
 }
-.sform{
-    margin-top: 50px;
-}
-.regular.slider img{
-    width: 200px;
-    height: 150px;
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .movie-thumbnail {
+    width: 60px;
+    height: 90px;
+  }
 }
