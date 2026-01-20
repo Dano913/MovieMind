@@ -15,7 +15,7 @@ use App\Http\Controllers\PeliculaController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('layouts.admin');
 });
 
 Auth::routes();
