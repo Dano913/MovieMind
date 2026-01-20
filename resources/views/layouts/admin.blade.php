@@ -18,7 +18,11 @@
       content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
     />
     <meta name="supported-color-schemes" content="light dark" />
-    <link rel="preload" href="../css/adminlte.css" as="style" />
+    
+    <!-- CSS local -->
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}">
+    
+    <!-- Fonts y librerías externas -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
@@ -37,11 +41,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body class="layout-fixed sidebar-expand-lg sidebar-open bg-body-tertiary">
     <div class="app-wrapper">
+      <!-- Navbar -->
       <nav class="app-header navbar navbar-expand bg-body">
         <div class="container-fluid">
           <ul class="navbar-nav">
@@ -53,11 +57,13 @@
           </ul>
         </div>
       </nav>
+
+      <!-- Sidebar -->
       <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
         <div class="sidebar-brand">
-          <a href="../index.html" class="brand-link">
+          <a href="{{ url('/') }}" class="brand-link">
             <img
-              src="{{asset('dist/assets/img/AdminLTELogo.png')}}"
+              src="{{ asset('dist/assets/img/AdminLTELogo.png') }}"
               alt="AdminLTE Logo"
               class="brand-image opacity-75 shadow"
             />
@@ -66,7 +72,6 @@
         </div>
         <div class="sidebar-wrapper">
           <nav class="mt-2">
-            <!--begin::Sidebar Menu-->
             <ul
               class="nav sidebar-menu flex-column"
               data-lte-toggle="treeview"
@@ -85,13 +90,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{url('admin/peliculas')}}" class="nav-link">
+                    <a href="{{ url('admin/peliculas') }}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Listado de Películas</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{url('admin/peliculas/create')}}" class="nav-link">
+                    <a href="{{ url('admin/peliculas/create') }}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Nueva película</p>
                     </a>
@@ -101,22 +106,26 @@
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-door-closed"></i>
-                  <p>
-                    Cerrar Sesión
-                  </p>
+                  <p>Cerrar Sesión</p>
                 </a>
               </li>
             </ul>
           </nav>
         </div>
       </aside>
+
+      <!-- Main content -->
       <main class="app-main">
         @yield('content')
       </main>
+
+      <!-- Footer -->
       <footer class="app-footer">
         &copy; 2025 Movie Mind. Todos los derechos reservados.
       </footer>
     </div>
+
+    <!-- Scripts -->
     <script
       src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
       crossorigin="anonymous"
